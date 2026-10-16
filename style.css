@@ -1,0 +1,106 @@
+/* Thiết lập chung & Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+    color: #333;
+    background-color: #f4f7f6;
+}
+
+/* Định dạng CSS Grid Container cho Desktop */
+.container {
+    display: grid;
+    grid-template-columns: 250px 1fr; /* Sidebar cố định 250px, Content chiếm phần còn lại */
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+        "header header"
+        "sidebar content"
+        "footer footer";
+    min-height: 100vh;
+}
+
+/* Header */
+.header {
+    grid-area: header;
+    background-color: #1e293b;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Sidebar */
+.sidebar {
+    grid-area: sidebar;
+    background-color: #e2e8f0;
+    padding: 20px;
+}
+
+.sidebar h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: #1e293b;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    margin-bottom: 8px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #2563eb;
+    font-weight: 500;
+}
+
+.sidebar a:hover {
+    text-decoration: underline;
+}
+
+/* Nội dung chính */
+.content {
+    grid-area: content;
+    padding: 30px;
+    background-color: #ffffff;
+}
+
+.content h2 {
+    color: #1e293b;
+    margin-bottom: 12px;
+}
+
+.content p {
+    color: #475569;
+    line-height: 1.6;
+}
+
+/* Footer */
+.footer {
+    grid-area: footer;
+    background-color: #1e293b;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+}
+
+/* --- RESPONSIVE CHO MOBILE (Màn hình từ 768px trở xuống) --- */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr; /* Chuyển thành 1 cột duy nhất */
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-areas: 
+            "header"
+            "sidebar"
+            "content"
+            "footer";
+    }
+}
